@@ -1,0 +1,21 @@
+body {
+  margin: 0px;
+}
+
+.pagination {
+  .active {
+    border: 1px solid;
+    border-radius: 100px;
+    padding: 4px 12px 4px 12px;
+    margin: -4px 0px 10px 10px;
+    color: white;
+    background-color: #fc6e6e;
+  }
+  li {
+    margin: 0px 0px 10px 10px;
+  }
+  .disabled {
+    pointer-events: none;
+    opacity: .5;
+  }
+}

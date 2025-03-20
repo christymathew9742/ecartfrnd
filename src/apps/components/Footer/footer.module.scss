@@ -1,0 +1,67 @@
+@import '../../commonstyles/color.module.scss';
+@import '../../commonStyles/media-queries.scss';
+@import '../../commonStyles/font.module.scss';
+
+.footer {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: $bannerBg!important;
+    .footerContent1 {
+        margin-top: 20px;
+        .para1 {
+            @include fontStyle($Mazzard, 38px, 300!important, $whiteClr, 60px, 1px);
+        }
+        .para2 {
+            margin-top: -42px;
+            @include fontStyle($Mazzard, 38px, 700!important, $fontclr, 60px, 1px);
+        }
+        .counterWrapper {
+            margin-top: 45px;
+            .counterItems {
+                .para2 {
+                    @include fontStyle($Mazzard, 46px, 700!important, $whiteClr, 90px, 1px);
+                    text-align: center;
+                    padding-left: 10px;
+                }
+                .para3 {
+                    margin-top: -4rem;
+                    text-align: center;
+                    margin-left: 10px;
+                    @include fontStyle($Mazzard, 11px, 600!important, $textclr1, 34px, 1px);
+                }
+            }
+            h1 {
+                @include fontStyle($Mazzard, 25px, 700!important, $whiteClr, 90px, 1px);
+                width: 22px;
+                text-align: center;
+                margin-top: -40px;
+            }
+        }
+    }
+    .footerContent2 {
+        >*{
+            margin-right: 3rem;
+        }
+        .content {
+            @include fontStyle($Mazzard, 13px, 400!important, $whiteClr, 22px, 1px);
+        }
+        .title {
+            margin-bottom: 12px;
+            @include fontStyle($Mazzard, 20px, 600!important, $fontclr, 30px, 1px);
+        }
+        p {
+            margin-bottom: -10px;
+            a{
+                @include fontStyle($Mazzard, 13px, 400!important, $whiteClr, 0px, 1px);
+            }
+            
+        }
+        .iconWrapper {
+            span{
+                margin-top: 20px;
+                margin-right: 20px;
+            }
+        }
+    }
+}
