@@ -85,7 +85,7 @@ const Home = () => {
     filteredProducts?.slice(offset, offset + itemsPerPage);
 
     return(
-        <section className="w-full max-w-[95%] mx-auto mt-4 mb-8">
+        <section className="w-full max-w-[98%] mx-auto mt-4 mb-8">
             {!dataStatus ? 
             ( 
                 <>
@@ -95,7 +95,7 @@ const Home = () => {
                 </>
             ): (
             <>
-                <div className="border border-borderClr p-8">
+                <div className="border border-borderClr p-4">
                     <h2 className="font-extrabold text-2xl font-gilroy">{Popularproducts}</h2>
                     <Slider {...settings}>
                         {Products?.map((elem) => {
@@ -117,7 +117,7 @@ const Home = () => {
                         })}
                     </Slider>
                 </div>
-                <div className="mt-10 border border-borderClr p-8">
+                <div className="mt-10 border border-borderClr p-4">
                     <h2 className="font-extrabold text-2xl font-gilroy">{AllProducts}</h2>
                     <div className="flex space-x-2 mt-4 mb-2">
                         <div>

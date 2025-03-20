@@ -73,7 +73,7 @@ const ProductDetails = ()=> {
     
     return title ? (
         <>
-            <div className="mt-4 w-full max-w-[95%] mx-auto flex pt-10">
+            <div className="mt-4 w-full max-w-[98%] mx-auto flex pt-10">
                 <div className="w-2/5 h-full">
                     <img src={image} alt={title} className="w-full h-full object-cover" />
                 </div>
@@ -99,8 +99,8 @@ const ProductDetails = ()=> {
                 </div>
             </div>
     
-            <div className="border border-borderClr p-8 mt-14 mb-10 w-full max-w-[95%] mx-auto">
-                <h2 className="font-extrabold text-2xl">Popular products</h2>
+            <div className="border border-borderClr p-4 mt-14 mb-10 w-full max-w-[98%] mx-auto">
+                <h2 className="font-extrabold text-2xl">Suggested Products</h2>
                 <Slider {...settings}>
                     {AllProducts?.map((elem) => (
                         <div
