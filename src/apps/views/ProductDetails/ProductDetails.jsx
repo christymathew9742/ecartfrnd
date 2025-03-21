@@ -31,14 +31,17 @@ const ProductDetails = ()=> {
     const isMobile = useMediaQuery({ maxWidth: 767 });
     const searchParams = new URLSearchParams(Product.search);
     const currentId = searchParams.get('id');
+    const catSearch = searchParams.get('cat');
     const navigate = useNavigate();
     
     const SingleProduct = useSelector(getProductDetailsSelector);
     const AllProducts = useSelector(getProductSelector);
+
     useEffect(() => {
+        const queryString = catSearch ? `category/${catSearch}` : "";
+        dispatch(fetchProductRequest(queryString));
         dispatch(fetchProductDetailsRequest(currentId));
-        dispatch(fetchProductRequest());
-    }, [currentId,dispatch]);
+    }, [currentId,catSearch,dispatch]);
 
     const elem = SingleProduct?.details; 
     const tags = elem?.category;
@@ -63,14 +66,13 @@ const ProductDetails = ()=> {
         swipe: true,
     };
     const showProductDetailsl = (elem) => {
-        navigate(`?mode=details&id=${elem?.id}`, {
+        navigate(`?mode=details&cat=${catSearch}&id=${elem?.id}`, {
             state: { productDetails: true }
         });
         setTimeout(function() {
             window.scrollTo(0, 0);
         }, 500);
     };
-    
     return title ? (
         <>
             <div className="mt-4 w-full max-w-[98%] mx-auto flex pt-10">

@@ -6,11 +6,12 @@ import {
     FETCH_PRODUCT_FETCH_REQUEST,
 } from './actionTypes';
 
-const getTodos = (area) => axios.get(`/products`);
+const getTodos = (payload) => axios.get(`/products/${payload}`);
 
 //product data
 function* fetchProductSaga(action) {
     const {payload} = action
+    
     try {
         const response = yield call(getTodos,payload);
         yield put (

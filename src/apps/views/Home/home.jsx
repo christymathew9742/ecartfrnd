@@ -29,6 +29,8 @@ const Home = () => {
     const Products = useSelector(getProductSelector);
     const CategoryList = useSelector(getSortCategorySelector);
     const dataStatus = useSelector(getPendingSelector);
+    const [ProductSearch, setProductSearch] = useState('');
+    const [catSearch, setcatSearch] = useState("");
     const options = [...new Set(CategoryList?.sort)].map(cat => ({ value: cat, label: cat }));
     const settings = {
         dots: false, 
@@ -44,27 +46,21 @@ const Home = () => {
         swipe: true,
     };
     const showProductDetailsl = (elem) => {
-        navigate(`productdetails/?mode=details&id=${elem?.id}`, {
+        navigate(`productdetails/?mode=details&cat=${catSearch}&id=${elem?.id}`, {
             state: {
                 productDetails: true
             }
         })
-    }
-    useEffect(() => {
-        dispatch(fetchProductRequest());
-        dispatch(fetchSortCategoryRequest());
-    }, [dispatch]); 
-
+    } 
     const handlePageClick = (event) => {
         setCurrentPage(event.selected);
     };
-  
-    const [ProductSearch, setProductSearch] = useState('');
-    const [catSearch, setcatSearch] = useState("");
 
-    const filterCat = Products.filter((cat) =>
-        cat?.category?.toLowerCase().includes(catSearch?.toLowerCase())
-    );
+    useEffect(() => {
+        const queryString = catSearch ? `category/${catSearch}` : "";
+        dispatch(fetchProductRequest(queryString));
+        dispatch(fetchSortCategoryRequest());
+    }, [catSearch,dispatch]);
 
     const searchCat = (e) => {
         setcatSearch(e);
@@ -78,7 +74,7 @@ const Home = () => {
         handlePageClick({ selected: 0 });
     };
 
-    const filteredProducts = filterCat.filter((product) =>
+    const filteredProducts = Products.filter((product) =>
       product?.title?.toLowerCase().includes(ProductSearch?.toLowerCase())
     );
 
