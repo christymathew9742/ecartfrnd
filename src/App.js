@@ -9,20 +9,9 @@ import {
 } from "react-router-dom";
 import Home from './apps/views/Home/home';
 import ProductDetails from './apps/views/ProductDetails/ProductDetails';
-import { constantsText } from './apps/constant/constant';
 import Footer from './apps/components/Footer/footer';
-const {
-  ROUTES: {
-     Speakers,
-     Sponsorship,
-     Travel,
-     FAQ,
-     ContactUs,
-  }
-} = constantsText
 
 function App() {
-
   return (
     <div className="App">
       <Header/>

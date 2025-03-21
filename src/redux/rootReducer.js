@@ -2,13 +2,13 @@ import { combineReducers } from 'redux';
 
 import productReducer from './reducers/home/reducer';
 import productDetailReducer from './reducers/productDetails/reducer';
-import sortArea from './reducers/sortArea/reducer'
+import sortCategory from './reducers/sortCategory/reducer'
 
 const rootReducer = combineReducers({
     todo: 
     productReducer,
     productDetailReducer,
-    sortArea,
+    sortCategory,
   });
   
 export default rootReducer;

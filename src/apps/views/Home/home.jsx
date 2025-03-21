@@ -10,6 +10,8 @@ import { fetchProductRequest } from "../../../redux/reducers/home/actions";
 import ReactPaginate from 'react-paginate';
 import CommonSkeleton from "../../components/Skeleton/skeleton";
 import { constantsText } from "../../constant/constant";
+import { fetchSortCategoryRequest } from "../../../redux/reducers/sortCategory/actions";
+import { getSortCategorySelector } from "../../../redux/reducers/sortCategory/selectors";
 
 const {
   ROUTES: {
@@ -25,10 +27,9 @@ const Home = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 4;
     const Products = useSelector(getProductSelector);
+    const CategoryList = useSelector(getSortCategorySelector);
     const dataStatus = useSelector(getPendingSelector);
-    const options = Array.from(
-        new Set(Products.map(elem => elem?.category))
-    ).map(category => ({ value: category, label: category }));
+    const options = [...new Set(CategoryList?.sort)].map(cat => ({ value: cat, label: cat }));
     const settings = {
         dots: false, 
         infinite: true,
@@ -51,6 +52,7 @@ const Home = () => {
     }
     useEffect(() => {
         dispatch(fetchProductRequest());
+        dispatch(fetchSortCategoryRequest());
     }, [dispatch]); 
 
     const handlePageClick = (event) => {
